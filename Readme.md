@@ -47,7 +47,8 @@ Even if you power the ESP32-S3 from the 5V pin, that power is NOT routed to the 
 
 #### Option 1: External Power to Keyboard (This is what I did, best for making it portable 💯)
 
-Power the keyboard from external 5V into keyboard's + - and connect the same 5v/gnd and the D + - to the otg's (+ - D+ D-) wires and insert the typc-C port in the esp32 s3's usb/otg port.
+Power the keyboard from external 5V into keyboard's + - and connect the same 5v/gnd and the D + - to the otg's (+ - D+ D-) wires 
+and insert the typc-C port in the esp32 s3's usb/otg port.
 
 ```
                       ┌──────────────┐
@@ -83,7 +84,9 @@ Go into that folder
 # Download and setup PlatformIO (VS Code Extension)
 
 # IMPORTANT!!:-
-You have to make changes in the "platormio.ini" file depending on your esp32s3 model, mine is ESP32-S3 WROOM N8R8 so if this is your chip than you dont have to make any changes in the code and if you have some other than you have to update according to your model otherwise it wont work.
+You have to make changes in the "platormio.ini" file depending on your esp32s3 model,
+mine is ESP32-S3 WROOM N8R8 so if this is your chip than you dont have to make any changes in the code
+and if you have some other than you have to update according to your model otherwise it wont work.
 
 # Then connect the s3 to PC and run this:-
 pio run
