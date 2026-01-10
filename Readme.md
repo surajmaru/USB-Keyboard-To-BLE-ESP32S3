@@ -73,8 +73,6 @@ ESP32-S3 USB-C ──► [Powered USB Hub] ──► USB Keyboard
 
 ## Software Part
 
-### 1. Clone and Build
-
 ```bash
 Make a folder and open it in vs code
 
