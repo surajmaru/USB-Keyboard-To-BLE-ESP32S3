@@ -1,6 +1,6 @@
-# ESP32-S3 USB to BLE Keyboard Bridge
+# Convert your wired Keyboard --> Wireless using (ESP32-S3 WROOM N8R8)
 
-Transform any USB keyboard into a Bluetooth wireless keyboard using ESP32-S3's native USB-OTG hardware.
+## In this project i have shown how you can convert any wire keyboard into wireless using the esp32 s3.
 
 ## What This Does
 
@@ -10,9 +10,8 @@ Transform any USB keyboard into a Bluetooth wireless keyboard using ESP32-S3's n
 └─────────────┘                   └────────────┘                   └──────────────┘
 ```
 
-Plug a USB keyboard into ESP32-S3's USB-C port and it becomes a Bluetooth keyboard that can connect to any BLE-compatible device (Windows, macOS, Linux, iOS, Android).
+![WhatsApp Image 2026-01-10 at 8 26 04 PM](https://github.com/user-attachments/assets/3bad7aa6-a436-4116-8579-6e609e32ee42)
 
-[![Demo](https://img.youtube.com/vi/dVUMYTfJw0s/maxresdefault.jpg)](https://youtu.be/dVUMYTfJw0s)
 
 ## Features
 
