@@ -100,4 +100,3 @@ pio run -t upload
 Now just plug the keyboard into the OTG and power the esp32 and then just connect it to your preferred device and enjoy!
 
 
-## Special thanks to:- https://github.com/KoStard/ESP32S3-USB-Keyboard-To-BLE for the code.
