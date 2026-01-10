@@ -43,7 +43,7 @@ You can pair with up to **3 different devices** (e.g., PC, Laptop, Tablet) and s
 
 Even if you power the ESP32-S3 from the 5V pin, that power is NOT routed to the USB-C VBUS line.
 
-### Making
+## Making
 
 #### Option 1: External Power to Keyboard (This is what I did, best for making it portable 💯)
 
@@ -97,3 +97,6 @@ pio run -t upload
 ## Conclusion
 
 Now just plug the keyboard into the OTG and power the esp32 and then just connect it to your preferred device and enjoy!
+
+
+## Special thanks to:- https://github.com/KoStard/ESP32S3-USB-Keyboard-To-BLE for the code.
