@@ -24,11 +24,11 @@
 
 You can pair with up to **3 different devices** (e.g., PC, Laptop, Tablet) and switch between them using your keyboard.
 
-| Key Combo | Action | Device Name |
-|-----------|--------|-------------|
-| **Scroll Lock + 1** | Switch to Device 1 | `USB-BLE Dev 1` |
-| **Scroll Lock + 2** | Switch to Device 2 | `USB-BLE Dev 2` |
-| **Scroll Lock + 3** | Switch to Device 3 | `USB-BLE Dev 3` |
+|      Key Combo      |      Action        |    Device Name   |
+|---------------------|--------------------|------------------|
+| **Scroll Lock + 1** | Switch to Device 1 | `BLE-Keyboard 1` |
+| **Scroll Lock + 2** | Switch to Device 2 | `BLE-Keyboard 2` |
+| **Scroll Lock + 3** | Switch to Device 3 | `BLE-Keyboard 3` |
 
 **How it works:**
 1. Press `Scroll Lock + 1`. Pair "USB-BLE Dev 1" with your first computer.
@@ -43,9 +43,25 @@ You can pair with up to **3 different devices** (e.g., PC, Laptop, Tablet) and s
 
 Even if you power the ESP32-S3 from the 5V pin, that power is NOT routed to the USB-C VBUS line.
 
-### Solutions
+### Making
 
-#### Option 1: Powered USB Hub (Recommended)
+#### Option 1: External Power to Keyboard (This is what I did, best for making it portable 💯)
+
+Power the keyboard from external 5V into keyboard's + - and connect the same 5v/gnd and the D + - to the otg's (+ - D+ D-) wires and insert the typc-C port in the esp32 s3's usb/otg port.
+
+```
+                      ┌──────────────┐
+  (EXTERNAL)  5V ─────┤   USB OTG    ├──── + USB Keyboard
+              GND ────┤USB A to USB C|──── - USB Keyboard
+                      └──────┬───────┘
+                             │ D+/D- and 5V/gnd (We have to give 5V into the usb port too, then the esp32 s3 will identify it as a device)
+                      ┌──────┴───────┐
+                      │   ESP32-S3   │
+                      │USB-C OTG port│
+                      └──────────────┘
+```
+
+#### Option 2: Powered USB Hub 
 
 Use a powered USB hub between ESP32-S3 and keyboard:
 
@@ -55,76 +71,29 @@ ESP32-S3 USB-C ──► [Powered USB Hub] ──► USB Keyboard
                     External 5V
 ```
 
-#### Option 2: External Power to Keyboard (untested)
-
-Power the keyboard directly, use USB-C only for data:
-
-```
-                      ┌──────────────┐
-    5V Power ─────────┤ USB Breakout ├──── USB Keyboard
-    Supply    GND ────┤    Board     │
-                      └──────┬───────┘
-                             │ D+/D- only (data)
-                      ┌──────┴───────┐
-                      │   ESP32-S3   │
-                      │   USB-C port │
-                      └──────────────┘
-```
-
-**Steps:**
-1. Cut a USB cable or get a USB breakout board
-2. Connect **5V and GND** from your power supply directly to keyboard's USB power
-3. Connect only **D+ and D-** (data lines) through the ESP32-S3 USB-C port
-
-#### Option 3: ESP32-S3-USB-OTG Board
-
-The **ESP32-S3-USB-OTG** development board has a dedicated USB-A host port with proper 5V output - no modifications needed.
-
-#### Option 4: Modify DevKit (Advanced)
-
-Some boards have solder pads to enable 5V on USB-C. Check your board's schematic for pads labeled "USB_OTG" or similar.
-
-## Quick Start
+## Software Part
 
 ### 1. Clone and Build
 
 ```bash
-git clone https://github.com/KoStard/ESP32S3-USB-Keyboard-To-BLE
-cd ESP32S3-USB-Keyboard-To-BLE
+Make a folder and open it in vs code
 
-# Build with PlatformIO
+Do this in the terminal:- git clone https://github.com/surajmaru/BLE-Keyboard-Conversion-ESP32-S3
+
+Go into that folder
+
+# Download and setup PlatformIO (VS Code Extension)
+
+# IMPORTANT!!:-
+You have to make changes in the "platormio.ini" file depending on your esp32s3 model, mine is ESP32-S3 WROOM N8R8 so if this is your chip than you dont have to make any changes in the code and if you have some other than you have to update according to your model otherwise it wont work.
+
+# Then connect the s3 to PC and run this:-
 pio run
 
 # Upload to ESP32-S3
 pio run -t upload
 ```
 
-## Configuration
+## Conclusion
 
-### Device Name
-
-Edit `src/Config.h`:
-
-```cpp
-#define DEVICE_NAME_1 "USB-BLE Dev 1"
-#define DEVICE_MANUFACTURER "Custom"
-```
-
-### Board Selection
-
-The project is configured for `esp32-s3-devkitc-1`. For other boards, edit `platformio.ini`:
-
-```ini
-board = esp32-s3-devkitc-1  ; Change to your board
-```
-
-Your board needs to have USB-OTG.
-
-## Hardware Limitations and Known Issues
-
-### USB Host Channel Limits
-The ESP32-S3 has a hardware limitation on the number of USB Host channels (pipes).
-
-**Consequence:** If you connect a complex hub with multiple devices (e.g., a "Gaming" keyboard that shows up as 3-4 different HID interfaces + a mouse + a hub), you may run out of hardware channels.
-- **Symptoms:** You will see `No more HCD channels available` in the Serial logs, and some devices or interfaces will fail to initialize.
-- **Recommendation:** Use a simple USB hub and avoid devices that present too many virtual interfaces if you plan to use them simultaneously.
+Now just plug the keyboard into the OTG and power the esp32 and then just connect it to your preferred device and enjoy!
