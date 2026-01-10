@@ -20,28 +20,11 @@
 - **Low Latency** - Direct HID report forwarding
 - **Universal Compatibility** - Works with Windows, macOS, Linux, iOS, Android, Smart TVs
 
-## Multi-Device Switching
-
-You can pair with up to **3 different devices** (e.g., PC, Laptop, Tablet) and switch between them using your keyboard.
-
-|      Key Combo      |      Action        |    Device Name   |
-|---------------------|--------------------|------------------|
-| **Scroll Lock + 1** | Switch to Device 1 | `BLE-Keyboard 1` |
-| **Scroll Lock + 2** | Switch to Device 2 | `BLE-Keyboard 2` |
-| **Scroll Lock + 3** | Switch to Device 3 | `BLE-Keyboard 3` |
-
-**How it works:**
-1. Press `Scroll Lock + 1`. Pair "USB-BLE Dev 1" with your first computer.
-2. Press `Scroll Lock + 2`. The connection drops. Pair "USB-BLE Dev 2" with your second device.
-3. Switch back and forth instantly using the key combos!
-4. The active slot is **saved** and restored on reboot.
-5. The **LED** on GPIO 2 blinks to indicate the current slot (1, 2, or 3 blinks).
-
 ## USB Keyboard Power
 
 **The USB-C port on most ESP32-S3 boards does NOT output 5V!**
 
-Even if you power the ESP32-S3 from the 5V pin, that power is NOT routed to the USB-C VBUS line.
+**Even if you power the ESP32-S3 from the 5V pin, that power is NOT routed to the USB-C VBUS line.**
 
 ## Making
 
@@ -94,6 +77,24 @@ pio run
 # Upload to ESP32-S3
 pio run -t upload
 ```
+
+## Multi-Device Switching
+
+You can pair with up to **3 different devices** (e.g., PC, Laptop, Tablet) and switch between them using your keyboard.
+
+|      Key Combo      |      Action        |    Device Name   |
+|---------------------|--------------------|------------------|
+| **Scroll Lock + 1** | Switch to Device 1 | `BLE-Keyboard 1` |
+| **Scroll Lock + 2** | Switch to Device 2 | `BLE-Keyboard 2` |
+| **Scroll Lock + 3** | Switch to Device 3 | `BLE-Keyboard 3` |
+
+**How it works:**
+1. Press `Scroll Lock + 1`. Pair "USB-BLE Dev 1" with your first computer.
+2. Press `Scroll Lock + 2`. The connection drops. Pair "USB-BLE Dev 2" with your second device.
+3. Switch back and forth instantly using the key combos!
+4. The active slot is **saved** and restored on reboot.
+5. The **LED** on GPIO 2 blinks to indicate the current slot (1, 2, or 3 blinks).
+
 
 ## Conclusion
 
