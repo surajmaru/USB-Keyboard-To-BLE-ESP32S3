@@ -84,7 +84,7 @@ Go into that folder
 # Download and setup PlatformIO (VS Code Extension)
 
 # IMPORTANT!!:-
-You have to make changes in the "platormio.ini" file depending on your esp32s3 model,
+You have to make changes in the "platformio.ini" file depending on your esp32s3 model,
 mine is ESP32-S3 WROOM N8R8 so if this is your chip than you dont have to make any changes in the code
 and if you have some other than you have to update according to your model otherwise it wont work.
 
