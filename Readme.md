@@ -1,4 +1,4 @@
-# Convert your wired Keyboard --> Wireless using (ESP32-S3 WROOM N8R8)
+# Convert your wired Keyboard --> Wireless using ESP32-S3
 
 ## In this project i have shown how you can convert any wire keyboard into wireless using the esp32 s3.
 
