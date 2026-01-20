@@ -12,6 +12,9 @@
 
 ![WhatsApp Image 2026-01-10 at 8 26 04 PM](https://github.com/user-attachments/assets/3bad7aa6-a436-4116-8579-6e609e32ee42)
 
+## Schematic
+
+<img width="1905" height="879" alt="Screenshot 2026-01-20 180134" src="https://github.com/user-attachments/assets/4cb172be-c85d-485e-af4d-c0b74125427a" />
 
 ## Features
 
